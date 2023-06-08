@@ -1,16 +1,73 @@
 // require in the database adapter functions as you write them (createUser, createActivity...)
-// const { } = require('./');
+const { createUser, createActivity, createRoutine } = require('./');
 const client = require("./client")
 
 async function dropTables() {
+  try {
+
+  
   console.log("Dropping All Tables...")
-  // drop all tables, in the correct order
+  client.query(`
+      DROP TABLE IF EXISTS users CASCADE;
+      DROP TABLE IF EXISTS activities CASCADE;
+      DROP TABLE IF EXISTS routines CASCADE;
+      DROP TABLE IF EXISTS routine_activities CASCADE;
+    `);
+
+    console.log('Finished dropping tables!');
+  } catch (error) {
+    console.error('Error while dropping tables!');
+
+    throw error;
+  }
 }
 
-async function createTables() {
-  console.log("Starting to build tables...")
-  // create all tables, in the correct order
-}
+  // drop all tables, in the correct order
+  async function createTables() {
+    try {
+      console.log("Starting to build tables...");
+      // create all tables, in the correct order
+  
+      await  client.query(`
+        CREATE TABLE users(
+          id  SERIAL PRIMARY KEY, 
+          username VARCHAR(255) UNIQUE NOT NULL, 
+          password VARCHAR(255) NOT NULL
+        );
+      `)
+  
+      await  client.query(`
+        CREATE TABLE activities(
+          id SERIAL PRIMARY KEY, 
+          name VARCHAR(255) UNIQUE NOT NULL,
+          description TEXT NOT NULL
+        );
+      `)
+      await  client.query(`
+        CREATE TABLE routines(
+          id SERIAL PRIMARY KEY, 
+          "creatorId" INTEGER REFERENCES users(id),
+          "isPublic" BOOLEAN DEFAULT false,
+          name VARCHAR(255) UNIQUE NOT NULL,
+          goal TEXT NOT NULL
+        );
+      `)
+      await  client.query(`
+        CREATE TABLE routine_activities(
+          id SERIAL PRIMARY KEY, 
+          "routineId" INTEGER REFERENCES routines(id),
+          "activityId" INTEGER REFERENCES activities(id),
+          duration INTEGER,
+          count INTEGER,
+          UNIQUE ("routineId", "activityId")
+          );
+      `)
+      console.log("Finished building tables!");
+    } catch (error) {
+      console.error("Error building tables!");
+      throw error;
+    }
+  }
 
 /* 
 
@@ -179,8 +236,8 @@ async function createInitialRoutineActivities() {
 
 async function rebuildDB() {
   try {
-    await dropTables()
-    await createTables()
+    await dropTables();
+     await createTables();
     await createInitialUsers()
     await createInitialActivities()
     await createInitialRoutines()
