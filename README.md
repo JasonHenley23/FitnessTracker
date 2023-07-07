@@ -1,41 +1,70 @@
-# fitnesstrackr
+# Getting Started with Create React App
 
-an API for our new fitness empire, FitnessTrac.kr, using node, express, and postgresql
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Getting Started
+## Available Scripts
 
-Install Packages
+In the project directory, you can run:
 
-    npm i
+### `npm start`
 
-Initialize Database
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-    createdb fitness-dev
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-Run Seed Script
+### `npm test`
 
-    npm run seed:dev
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Automated Tests
+### `npm run build`
 
-**NOTE:** At first, there will be too many errors for the tests to even run. Start by running the seed:dev script above, until it is working.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-Once you've resolved all errors in your console, we recommend running the DB tests first, and move to API next. When you open the test files, you'll notice that the `it()` blocks defining tests are all prefaced with an `x`. Adding and removing the `x` lets you decide to set some tests as _skipped_, meaning they won't run. To get the tests to run remove the `x`.
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-If you'd like to remove all of them in a file at once you can use the `CMD + f` on Mac or `CTRL + f` on Windows to begin a search. In the search bar type `xit` and select the drop down arrow at the left of the search bar. You'll see a placeholder in another bar that says replace. In this bar type `it`. Lastly, look to the right hand side and hover your cursor over the icons to find the one that will replace all. Typically this is the last one on the right. Then save the file. If you have run the test script below, you should see the tests begin running in the terminal.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-If you only want to run one or two tests, you can add `.only` after `it` and `describe` to isolate that particular test. That is, to run only the tests in a particular `describe` block, use: the syntax `describe.only()`. To isolate one or more `it` blocks, use `it.only()`.
+### `npm run eject`
 
-Make sure to read the tests and comments in this repo carefully, they offer some hints every now and again that could save you hours!
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-To run all the tests in watch mode (re-runs on code update), run
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-    npm run test:watch
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-### DB Methods
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-    npm run test:watch db
+## Learn More
 
-### API Routes (server must be running for these to pass)
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-    npm run test:watch api
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
